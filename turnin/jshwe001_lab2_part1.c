@@ -30,6 +30,10 @@ int main(void)
         {
             PORTB = 0x01;
         }
+        else
+        {
+            PORTB = 0x00;
+        }
     }
     return 0;
 }
