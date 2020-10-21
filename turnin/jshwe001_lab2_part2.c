@@ -30,7 +30,7 @@ int main(void)
         tmpA += (PINA >> 2) & 1;
         tmpA += (PINA >> 3) & 1;
 
-        PORTC = tmpA;
+        PORTC = 4 - tmpA;
     }
     return 0;
 }
