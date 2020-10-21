@@ -19,8 +19,7 @@ int main(void)
     PORTA = 0xFF;
     DDRB = 0x00;
     PORTB = 0xFF;
-    i
-        DDRC = 0x00;
+    DDRC = 0x00;
     PORTC = 0xFF;
     DDRD = 0xFF;
     PORTD = 0x00;
@@ -29,19 +28,20 @@ int main(void)
     while (1)
     {
         tmpA = 0;
-        weight_A = PINA;
-        weight_B = PINB;
-        weight_C = PINC;
+        unsigned char weight_A = PINA;
+        unsigned char weight_B = PINB;
+        unsigned char weight_C = PINC;
         total = weight_A + weight_B + weight_C;
 
         if (total > 140)
         {
             tmpA = 0x01;
         }
-        if (abs((weight_A - weight_C)) > 80)
+        if ((weight_A - weight_C) > 80 || (weight_A - weight_C) < -80)
         {
             tmpA |= 0x02;
         }
-        PORTD = (total & 0xFC) | tmpA;
-        return 0;
+        PORTD = (total >> 2 & 0xFC) | tmpA;
     }
+    return 0;
+}

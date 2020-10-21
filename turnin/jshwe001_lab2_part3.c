@@ -17,8 +17,8 @@ int main(void)
     /* Insert your solution below */
     DDRA = 0x00;
     PORTA = 0xFF; // Configure port A's 8 pins as inputs
-    DDRB = 0xFF;
-    PORTB = 0x00;
+    DDRC = 0xFF;
+    PORTC = 0x00;
 
     unsigned char tmpA = 0x00;
 
@@ -37,7 +37,7 @@ int main(void)
             tmpA |= 128;
         }
 
-        PORTB = (PORTA & 120) | tmpA;
+        PORTC = tmpA;
     }
     return 0;
 }
