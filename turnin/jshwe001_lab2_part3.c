@@ -30,7 +30,9 @@ int main(void)
         tmpA += (PINA >> 2) & 1;
         tmpA += (PINA >> 3) & 1;
 
-        if (tmpA == 4)
+        tmpA = 4 - tmpA;
+
+        if (tmpA == 0)
         {
             tmpA |= 128;
         }
