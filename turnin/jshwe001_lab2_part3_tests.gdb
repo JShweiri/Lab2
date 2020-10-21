@@ -40,10 +40,10 @@ checkResult
 
 # Add tests below
 
-test "PINA: 0x05 => PORTB: 0x02"
+test "PINA: 0x00 => PORTB: 0x04"
 setPINA 0x05
 continue 5
-expectPORTB 0x02
+expectPORTB 0x04
 checkResult
 
 
